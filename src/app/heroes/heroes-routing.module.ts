@@ -23,7 +23,7 @@ const routes : Routes	= [
 				component	: AddHeroesComponent
 			},
 			{
-				path		: 'edit/:id',
+				path		: 'heroe/edit/:id',
 				component	: AddHeroesComponent
 			},
 			{
@@ -31,7 +31,7 @@ const routes : Routes	= [
 				component	: SearchComponent
 			},
 			{
-				path		: 'detail/:id',
+				path		: 'heroe/:id',
 				component	: HeroeComponent
 			},
 			{

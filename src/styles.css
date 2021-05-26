@@ -6,3 +6,21 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .spacer {
 	flex	: 1 1 auto;
 }
+.mat-grid-tile .mat-figure {
+	height	: 50%!important;
+}
+.white {
+	color	: white
+}
+.text-right {
+	text-align	: right;
+}
+.text-left {
+	text-align	: left;
+}
+.text-center {
+	text-align	: center;
+}
+.text-justify {
+	text-align	: justify;
+}

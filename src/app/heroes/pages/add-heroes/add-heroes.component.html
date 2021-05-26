@@ -1,1 +1,96 @@
-<p>add-heroes works!</p>
+<h1>{{ ( heroe.id ) ? 'Editar' : 'Nuevo' }} Héroe <small>{{ heroe.superhero }}</small></h1>
+
+<mat-grid-list cols="1" *ngIf="registering">
+	<mat-grid-tile>
+		<mat-spinner></mat-spinner>
+	</mat-grid-tile>
+</mat-grid-list>
+
+<div fxLayout="row" fxLayoutGap="40px" fxLayout.xs="column">
+	<div fxFlex="50" fxLayout="column">
+		<div fxLayout="row" fxLayout.xs="column" fxLayoutGap="20px">
+			<mat-form-field fxFlex="100" fxLayout.xs="column">
+				<mat-label>Super Héroe</mat-label>
+				<input
+					matInput
+					type="text"
+					autocomplete="off"
+					[(ngModel)]="heroe.superhero"
+					required
+				>
+			</mat-form-field>
+			<mat-form-field fxFlex="100">
+				<mat-label>Alter Ego</mat-label>
+				<input
+					matInput
+					type="text"
+					autocomplete="off"
+					[(ngModel)]="heroe.alter_ego"
+					required
+				>
+			</mat-form-field>
+		</div>
+		<mat-form-field fxFlex="100">
+			<mat-label>Primera Aparición</mat-label>
+			<input
+				matInput
+				type="text"
+				autocomplete="off"
+				[(ngModel)]="heroe.first_appearance"
+				required
+			>
+		</mat-form-field>
+		<mat-form-field fxFlex="100">
+			<mat-label>Personajes</mat-label>
+			<input
+				matInput
+				type="text"
+				autocomplete="off"
+				[(ngModel)]="heroe.characters"
+				required
+			>
+		</mat-form-field>
+		<mat-form-field fxFlex="100">
+			<mat-label>Creador</mat-label>
+			<mat-select [(ngModel)]="heroe.publisher" required>
+				<mat-option *ngFor="let publisher of publishers" [value]="publisher.id">
+					{{ publisher.desc }}
+				</mat-option>
+			</mat-select>
+		</mat-form-field>
+		<mat-form-field fxFlex="100">
+			<mat-label>Foto Url</mat-label>
+			<input
+				matInput
+				type="url"
+				autocomplete="off"
+				[(ngModel)]="heroe.alt_img"
+				required
+			>
+		</mat-form-field>
+		<br>
+		<div fxLayout>
+			<button
+				mat-raised-button
+				color="accent"
+				(click)="save()"
+			>
+				<mat-icon>edit</mat-icon>
+				{{ ( heroe.id ) ? 'Actualizar' : 'Registrar' }}
+			</button>
+			<div class="spacer"></div>
+			<button
+				*ngIf="heroe.id"
+				mat-raised-button
+				color="warn"
+				(click)="delete()"
+			>
+				<mat-icon>remove</mat-icon>
+				Borrar
+			</button>
+		</div>
+	</div>
+	<div fxFlex="50" fxLayoutAlign="center">
+		<img [src]="heroe | imageinpure" alt="">
+	</div>
+</div>

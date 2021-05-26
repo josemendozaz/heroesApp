@@ -1,7 +1,3 @@
-<!-- <h2>Heroes App</h2>
-<hr>
-<router-outlet></router-outlet> -->
-
 <mat-sidenav-container fullscreen>
 	<mat-sidenav #sidenav mode="push">
 		<mat-toolbar color="warn">
@@ -40,4 +36,17 @@
 	<div class="container">
 		<router-outlet></router-outlet>
 	</div>
+	<footer>
+		<mat-toolbar fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center center">
+			<div class="text-left" fxFlex="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.gt-lg="50" fxFlex.sm="100">
+				<span>2021 - Ejercicio Angular (Del curso Fernando Herrera) - José Mendoza </span>
+			</div>
+			<div class="text-right" fxFlex="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.gt-lg="50" fxFlex.sm="100">
+				<span>Redes de José Mendoza </span>
+				<a class="p-mr-3 white" href="https://github.com/josemendozaz" target="_blank" color="warn">
+					<fa-icon [icon]="faGithub" ></fa-icon>
+				</a>
+			</div>
+		</mat-toolbar>
+	</footer>
 </mat-sidenav-container>

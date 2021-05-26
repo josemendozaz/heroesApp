@@ -1,0 +1,12 @@
+<h1>¿Está Seguro que desea borrar el héroe?</h1>
+<hr>
+<p>
+	Está a punto de borrar a {{ data.superhero }}
+	<br>
+	¿Desea Continuar?, esta acción es inrreversible
+</p>
+<div fxLayout>
+	<button mat-button (click)="delete()" color="warn">Si, ¡Eliminalo!</button>
+	<div class="spacer"></div>
+	<button mat-button (click)="close()">¡No!, dejalo</button>
+</div>
