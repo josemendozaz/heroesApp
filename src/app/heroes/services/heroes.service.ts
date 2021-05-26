@@ -22,6 +22,7 @@ export class HeroesService {
 	constructor( private http: HttpClient ) { }
 
 	getHeroes()							: Observable<Heroe[]> {
+		console.log( environment );
 		return this.http.get<Heroe[]>(`${this.apiUrl}/heroes`);
 	}
 	getHeroeWithId( argument: string )	: Observable<Heroe> {
