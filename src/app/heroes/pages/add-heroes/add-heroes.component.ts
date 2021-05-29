@@ -44,23 +44,24 @@ export class AddHeroesComponent implements OnInit {
 			id: 'Marvel Comics',
 			desc: 'Marvel - Comics'
 		}
-	]
+	];
 	superheroToDelete			: string	= '';
 	durationInSeconds			: number	= 5;
 	heroe						: Heroe		= {
-		superhero			:'',
-		alter_ego			:'',
-		characters			:'',
-		first_appearance	:'',
+		superhero			: '',
+		alter_ego			: '',
+		characters			: '',
+		first_appearance	: '',
 		publisher			: Publisher.DCComics,
 		alt_img				: ''
 	};
 	/**
-	 * @function	constructor
+	 * @desc	constructor
 	 */
+	// tslint:disable-next-line: max-line-length
 	constructor(  private activatedRoute: ActivatedRoute, private router: Router, private heroesService: HeroesService, private _snackBar: MatSnackBar, public dialog: MatDialog ) { }
 	/**
-	 * @function	ngOnInit
+	 * @desc	ngOnInit
 	 */
 	ngOnInit()				: void {
 		if ( this.router.url.includes('edit') ) {
@@ -72,18 +73,18 @@ export class AddHeroesComponent implements OnInit {
 				)
 				.subscribe(
 					( heroe: Heroe ) => {
-						this.heroe	= heroe
+						this.heroe	= heroe;
 					},
-					( err: HttpErrorResponse )=> {
+					( err: HttpErrorResponse ) => {
 						if ( err.status === 404 ) {
-							this.router.navigate(['/heroes/list'])
+							this.router.navigate(['/heroes/list']);
 						}
 					}
 				);
 		}
 	}
 	/**
-	 * @function	save
+	 * @des	save
 	 * @description	Registra un Héroe
 	 */
 	save()		: void {
@@ -104,18 +105,18 @@ export class AddHeroesComponent implements OnInit {
 					this.registering	= false;
 					this.showSnakbar('Héroe Registrado');
 					this.router.navigate(['/heroes/heroe/edit/', heroe.id]);
-				})
+				});
 		} else {
 			this.heroesService.updateHeroe( this.heroe )
 				.subscribe( heroe => {
 					this.registering	= false;
 					this.showSnakbar('Héroe Actualizado');
-					this.router.navigate(['/heroes/heroe/edit/', heroe.id])
-				})
+					this.router.navigate(['/heroes/heroe/edit/', heroe.id]);
+				});
 		}
 	}
 	/**
-	 * @function	delete
+	 * @desc	delete
 	 * @description	Elimina un héroe
 	 */
 	delete()	: void {
@@ -133,16 +134,16 @@ export class AddHeroesComponent implements OnInit {
 							.subscribe( heroe => {
 								this.registering	= false;
 								this.showSnakbar('Héroe Eliminado');
-								this.router.navigate(['/heroes/list'])
+								this.router.navigate(['/heroes/list']);
 							});
 					}
 				}
-			)
+			);
 		},
 		500);
 	}
 	/**
-	 * @function	showSnakbar
+	 * @desc		showSnakbar
 	 * @param		message:	string
 	 * @description	Muestra alerta Snakbar
 	 */
